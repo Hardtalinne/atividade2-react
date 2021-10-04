@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# 
+<h1 align="center">Atividade 2 - React</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição do Projeto
 
-## Available Scripts
+Projeto desenvolvido para praticar conceitos basicos do react.
+Consumindo uma API, estilizando e renderizando.
 
-In the project directory, you can run:
+## Como executar?
 
-### `npm start`
+Após clonar o projeto é necessario realizar configurações utilize o .env.example e renomeie para .env
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Acesse [Api Marvel Documentação](https://developer.marvel.com/documentation/authorization) realize o acesso e utilize a chave privada e publica fornecida e depois gere um HASH no formato md5
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Comando para executar
 
-### `npm test`
+```
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Detalhes do Projeto
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## [Styled Components](https://styled-components.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Foram realizados componentes de estilos utilizando a biblioteca styled Components, qual permite realizar esse processo de estilo ao nivel de componente na aplicação.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## [Axios](https://axios-http.com/docs/intro)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Utilizado a biblioteca Axios, qual é um cliente HTTP, baseado em promises para realizar requisições.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## [Search]()
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Para realizar pesquisa foi implementado a busca por letra, ou seja a cada letra digitada no input é realizada a requisição e renderizada.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## [Infinity scroll]()
 
-## Learn More
+* Implementado o scroll infinito, ou seja ao chegar no fim da pagina é realizada uma nova requisição.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<h1 align="center">
+  <img alt="" title="#" src="./public/gif.gif" />
+</h1>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Demonstração do Projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<h1 align="center">
+  <img alt="" title="#" src="./public/apiMarvel1.png" />
+</h1>
+<h1 align="center">
+  <img alt="" title="#" src="./public/apiMarvel2.png" />
+</h1>
+<h1 align="center">
+  <img alt="" title="#" src="./public/apiMarvel3.png" />
+</h1>
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
