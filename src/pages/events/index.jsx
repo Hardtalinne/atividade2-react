@@ -12,10 +12,13 @@ export const Events = () => {
   const [event, setEvent] = useState();
   const [events, setEvents] = useState([]);
   const [page, setPage] = useState(0);
+  const [moreData, setMoreData] = useState(true);
   const loader = useRef(null);
 
   const fetchEvents = async (id, value, page) => {
     const data = await getEvents(id, value, page);
+
+    setMoreData(!(data.offset >= data.total));
 
     if (id) {
       setEvent(data.results[0]);
@@ -81,13 +84,13 @@ export const Events = () => {
                     />
                   )
               )}
-              {events.length >= 100 && <div ref={loader} />}
+              {moreData && <div ref={loader} />}
             </List>
           )}
           {event && (
             <Info
               item={event}
-              urlImage={`${event?.thumbnail.path}/landscape_incredible.${event?.thumbnail.extension}`}
+              urlImage={`${event.thumbnail?.path}/landscape_incredible.${event.thumbnail?.extension}`}
             />
           )}
         </Nav>

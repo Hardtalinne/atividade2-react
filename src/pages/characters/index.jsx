@@ -12,10 +12,13 @@ export const Characters = () => {
   const [character, setCharacter] = useState();
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState(0);
+  const [moreData, setMoreData] = useState(true)
   const loader = useRef(null);
 
   const fetchCharacters = async (id, value, page) => {
     const data = await getCharacters(id, value, page);
+
+    setMoreData(!(data.offset >= data.total))
 
     if (id) {
       setCharacter(data.results[0]);
@@ -81,7 +84,7 @@ export const Characters = () => {
                     />
                   )
               )}
-              {characters.length >= 100 && <div ref={loader} />}
+              {moreData && <div ref={loader} />}
             </List>
           )}
           {character && (

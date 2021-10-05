@@ -4,18 +4,23 @@ import { Search } from "../../components/Search";
 import { Sidebar } from "../../components/Sidebar";
 import { Card } from "../../components/Card";
 import { getSeries } from "../../services/get-series";
-import { Body, Container, List, Nav } from "../../style.global";
+import { Body, Container, Nav, ListMedium } from "../../style.global";
 import { Info } from "../../components/Info";
+
 
 export const Series = () => {
   const { id } = useParams();
   const [serie, setSerie] = useState();
   const [series, setSeries] = useState([]);
   const [page, setPage] = useState(0);
+  const [moreData, setMoreData] = useState(true);
   const loader = useRef(null);
 
   const fetchSeries = async () => {
     const data = await getSeries(id);
+
+    setMoreData(!(data.offset >= data.total));
+
     if (id) {
       setSerie(data.results[0]);
     } else if (!page) {
@@ -67,7 +72,7 @@ export const Series = () => {
         />
         <Nav>
           {!serie && series && (
-            <List>
+            <ListMedium>
               {series.map(
                 (serie, index) =>
                   serie.thumbnail?.path.search(/image_not_available/i) ===
@@ -75,18 +80,18 @@ export const Series = () => {
                     <Card
                       key={index}
                       name={serie.title}
-                      redirectUrl={`/comics/${serie.id}`}
+                      redirectUrl={`/series/${serie.id}`}
                       imageUrl={`${serie.thumbnail?.path}/landscape_small.${serie.thumbnail?.extension}`}
                     />
                   )
               )}
-              {series.length >= 100 && <div ref={loader} />}
-            </List>
+              {moreData && <div ref={loader} />}
+            </ListMedium>
           )}
           {serie && (
             <Info
               item={serie}
-              urlImage={`${serie?.thumbnail.path}/landscape_incredible.${serie?.thumbnail.extension}`}
+              urlImage={`${serie.thumbnail?.path}/landscape_incredible.${serie.thumbnail?.extension}`}
             />
           )}
         </Nav>

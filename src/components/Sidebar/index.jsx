@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import { Container, Divider, Image, Link, Nav } from "./style";
 
 export const Sidebar = () => {
@@ -11,10 +10,10 @@ export const Sidebar = () => {
           alt="logo marvel"
         />
         <Divider />
-        <Link to="characters">CHARACTERS</Link>
-        <Link to="comics">COMICS</Link>
-        <Link to="series">SERIES</Link>
-        <Link to="events">EVENTS</Link>
+        <Link to="/characters">CHARACTERS</Link>
+        <Link to="/comics">COMICS</Link>
+        <Link to="/series">SERIES</Link>
+        <Link to="/events">EVENTS</Link>
       </Nav>
     </Container>
   );

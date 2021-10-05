@@ -4,8 +4,7 @@ import { Search } from "../../components/Search";
 import { Sidebar } from "../../components/Sidebar";
 import { getComics } from "../../services/get-comics";
 import { Card } from "../../components/Card";
-import { Body, Container, Nav } from "../../style.global";
-import { List } from "./style";
+import { Body, Container, Nav, ListMedium } from "../../style.global";
 import { Info } from "../../components/Info";
 
 export const Comics = () => {
@@ -13,10 +12,13 @@ export const Comics = () => {
   const [comic, setComic] = useState();
   const [comics, setComics] = useState([]);
   const [page, setPage] = useState(0);
+  const [moreData, setMoreData] = useState(true);
   const loader = useRef(null);
 
   const fetchComics = async (id, value, page) => {
     const data = await getComics(id, value, page);
+
+    setMoreData(!(data.offset >= data.total));
 
     if (id) {
       setComic(data.results[0]);
@@ -69,7 +71,7 @@ export const Comics = () => {
         />
         <Nav>
           {!comic && comics && (
-            <List>
+            <ListMedium>
               {comics.map(
                 (comic, index) =>
                   comic.thumbnail?.path.search(/image_not_available/i) ===
@@ -82,8 +84,8 @@ export const Comics = () => {
                     />
                   )
               )}
-              {comics.length >= 100 && <div ref={loader} />}
-            </List>
+              {moreData && <div ref={loader} />}
+            </ListMedium>
           )}
           {comic && (
             <Info
