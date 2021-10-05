@@ -15,6 +15,13 @@ export const List = styled.div`
   grid-gap: 10px;
 `;
 
+export const ListMedium = styled.div`
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+`;
+
 export const Nav = styled.div`
   margin: 20px;
 `;
