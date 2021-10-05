@@ -16,8 +16,8 @@ export const Series = () => {
   const [moreData, setMoreData] = useState(true);
   const loader = useRef(null);
 
-  const fetchSeries = async () => {
-    const data = await getSeries(id);
+  const fetchSeries = async (id, value, page) => {
+    const data = await getSeries(id, value, page);
 
     setMoreData(!(data.offset >= data.total));
 
